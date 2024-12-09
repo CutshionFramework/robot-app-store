@@ -9,17 +9,34 @@ import {
   ListItemText,
 } from '@mui/material';
 
+/**
+ * 1. docker-desktop 설치 여부 alert
+ * 2. 설치 후, 아이콘 변경
+ * 3. 실행버튼 -> /api/open 으로 데이터 전송
+ */
 import GetAppIcon from '@mui/icons-material/GetAppRounded';
+import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 console.log(backendUrl);
 
-async function handleButtonClick() {
+async function handleDownloadButton() {
   try {
     const response = await axios.post(
       `${backendUrl}/api/download`,
-      { image_name: 'sromerof202/palletizing_app-server:latest' } // 데이터
+      { image_name: 'sromerof202/palletizing_app-server:latest' }
     );
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function handleRunButton() {
+  try {
+    const response = await axios.post(`${backendUrl}/api/open`, {
+      image_name: 'sromerof202/palletizing_app-server:latest',
+    });
     console.log(response.data);
   } catch (error) {
     console.error(error);
@@ -50,8 +67,15 @@ export default function AppList() {
               style={{ color: 'black' }}
               endIcon={<GetAppIcon />}
               className={styles.app_list_button}
-              onClick={handleButtonClick}>
+              onClick={handleDownloadButton}>
               Get
+            </Button>
+            <Button
+              style={{ color: 'black' }}
+              endIcon={<DownloadDoneIcon />}
+              className={styles.app_list_button}
+              onClick={handleRunButton}>
+              Run
             </Button>
           </ListItem>
         ))}

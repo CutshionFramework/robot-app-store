@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "image_id": "gom-cook",
+    "name": "Gom Cook",
+    "description": "A cooking robot that supports personalized customized cooking",
+    "update_state": "Get"
+  },
+  {
+    "id": 2,
+    "image_id": "drawing-robot",
+    "name": "Drawing Robot",
+    "description": "A robot that draws pictures by recognizing photos taken with a camera",
+    "update_state": "Get"
+  },
+  {
+    "id": 3,
+    "image_id": "palletizing-robot",
+    "name": "Palletizing Robot",
+    "description": "A robot for stacking books in a publishing factory",
+    "update_state": "Update"
+  },
+  {
+    "id": 4,
+    "image_id": "welding-robot",
+    "name": "Welding Robot",
+    "description": "A robot that performs hazardous welding tasks in place of humans",
+    "update_state": "Get"
+  }
+]

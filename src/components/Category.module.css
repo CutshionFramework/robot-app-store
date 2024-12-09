@@ -1,0 +1,21 @@
+.category_list {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.category_list li {
+  cursor: pointer;
+  padding: 0px 5px 5px 5px;
+  justify-content: flex-start;
+  margin-right: 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  color: black;
+}
+
+.category_icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}

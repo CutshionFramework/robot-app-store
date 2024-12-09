@@ -1,0 +1,14 @@
+.top_section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+.app_list_section {
+  display: flex;
+  margin-top: 40px;
+}

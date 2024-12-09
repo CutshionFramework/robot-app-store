@@ -1,0 +1,31 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.header_title > h1 {
+  padding: 0px;
+}
+
+.header_sub {
+  display: flex;
+  align-items: center;
+}
+
+.header_icons {
+  display: flex;
+  margin-right: 50px;
+}
+
+.header_icons > img {
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+}
+
+.header_avatar > img {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+}

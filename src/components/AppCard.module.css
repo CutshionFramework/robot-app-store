@@ -1,0 +1,10 @@
+.icon_image {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+}

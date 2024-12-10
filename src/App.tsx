@@ -3,6 +3,9 @@ import Header from './components/Header';
 import Category from './components/Category';
 import AppList from './components/AppList';
 import AppBundle from './components/AppBundle';
+import GomCookApp from './components/GomCook';
+import PalletizingApp from './components/Palletizing';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,16 +18,19 @@ function App() {
        * 5. Footer
        */}
 
-      <header>
+      <section className="header_section">
         <Header />
-      </header>
+      </section>
 
       <section className="top_section">
         <Category />
       </section>
 
       <section className="center_section">
-        <div className="app_section">App Section</div>
+        <div className="app_section">
+          <GomCookApp />
+          <PalletizingApp />
+        </div>
         <div className="app_list_section">
           <div className="app_list">
             <AppList />
@@ -35,9 +41,9 @@ function App() {
         </div>
       </section>
 
-      <section className="bottom_section"></section>
-
-      <footer></footer>
+      <section className="footer_section">
+        <Footer />
+      </section>
     </>
   );
 }

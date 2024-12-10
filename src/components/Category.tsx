@@ -9,6 +9,8 @@ export default function Category() {
     <Stack direction="row" spacing={2}>
       <Button
         style={{
+          padding: '10px',
+          marginRight: '15px',
           border: 'none',
           borderRadius: '15px',
           color: 'white',
@@ -19,6 +21,8 @@ export default function Category() {
       </Button>
       <Button
         style={{
+          padding: '10px',
+          marginRight: '15px',
           border: 'none',
           borderRadius: '15px',
           color: 'black',
@@ -29,6 +33,8 @@ export default function Category() {
       </Button>
       <Button
         style={{
+          padding: '10px',
+          marginRight: '15px',
           border: 'none',
           borderRadius: '15px',
           color: 'black',

@@ -36,7 +36,10 @@ export default function Palletizing() {
           src="/src/assets/icons/3.jpg"
           alt=""
         />
-        <div className={styles.description}></div>
+        <div className={styles.description}>
+          <div className={styles.app}>Palletizing Robot</div>
+          <div className={styles.company}>cutshion</div>
+        </div>
       </CardActions>
     </Card>
   );

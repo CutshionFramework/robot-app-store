@@ -36,7 +36,10 @@ export default function GomCook() {
           src="/src/assets/icons/1.jpg"
           alt=""
         />
-        <div className={styles.description}></div>
+        <div className={styles.description}>
+          <div className={styles.app}>Gom Cook</div>
+          <div className={styles.company}>cutshion</div>
+        </div>
       </CardActions>
     </Card>
   );

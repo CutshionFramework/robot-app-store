@@ -5,7 +5,6 @@ import AppList from './components/AppList';
 import AppBundle from './components/AppBundle';
 import GomCookApp from './components/GomCook';
 import PalletizingApp from './components/Palletizing';
-import Footer from './components/Footer';
 
 function App() {
   return (
@@ -39,10 +38,6 @@ function App() {
             <AppBundle />
           </div>
         </div>
-      </section>
-
-      <section className="footer_section">
-        <Footer />
       </section>
     </>
   );

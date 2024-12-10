@@ -8,7 +8,8 @@ import {
   ListItemIcon,
   ListItemText,
 } from '@mui/material';
-import GetAppIcon from '@mui/icons-material/GetAppRounded';
+import GetAppRounded from '@mui/icons-material/GetAppRounded';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 
 // App 데이터 타입 정의
 interface App {
@@ -34,7 +35,7 @@ export default function AppList() {
       try {
         const response = await axios.get<ApiResponse>(
           `${backendUrl}/api/get_app_state`
-        ); // 서버에서 데이터 요청
+        );
         setAppData(response.data.apps);
         console.log(response.data.apps);
       } catch (err) {
@@ -94,7 +95,13 @@ export default function AppList() {
           />
           <Button
             style={{ color: 'black' }}
-            endIcon={<GetAppIcon />}
+            endIcon={
+              app.app_state === 'Get' ? (
+                <GetAppRounded />
+              ) : (
+                <PlayCircleOutlineIcon />
+              )
+            }
             className={styles.app_list_button}
             onClick={() => handleButtonClick(app.app_state)}
           >

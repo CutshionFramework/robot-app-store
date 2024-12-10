@@ -29,37 +29,15 @@
   margin-right: 30px;
 }
 
-.app_list_content {
+.list_content {
+  align-items: center;
   flex-direction: column;
   margin-top: 20px;
-  margin-left: 15px;
-}
-
-.app_list_content p {
+  margin-left: 10px;
+  margin-right: 10px;
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 2;
   font-size: 12px;
-  color: #2c2b2b;
-  width: 350px;
-}
-
-.app_list_button {
-  margin-left: auto;
-}
-
-.app_download_button {
-  display: flex;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.download_button_icon {
-  width: 18px;
-  height: 18px;
-  margin-left: 10px;
-  text-align: center;
 }

@@ -1,25 +1,44 @@
+import { styled } from 'styled-components';
 import styles from './AppList.module.css';
 import AppData from '../mock/app-data.json';
 import axios from 'axios';
 import {
-  Button,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
 } from '@mui/material';
 
-/**
- * 1. docker-desktop 설치 여부 alert
- * 2. 설치 후, 아이콘 변경
- * 3. 실행버튼 -> /api/open 으로 데이터 전송
- */
 import GetAppIcon from '@mui/icons-material/GetAppRounded';
 import DownloadDoneIcon from '@mui/icons-material/DownloadDone';
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-console.log(backendUrl);
+/*
+ ? 1. docker-desktop 설치 여부 alert (생략해도 될듯)
+ ? 2. 설치 후, 아이콘 변경
+ ? 3. 실행버튼 -> /api/open 으로 데이터 전송
+ */
 
+/*     Button styled 컴포넌트     */
+const AppListButton = styled.button`
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #45a049;
+  }
+`;
+
+/* 백엔드 서버랑 연결하는 코드 (vite앱 버전)  */
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+/*            App 다운로드            */
 async function handleDownloadButton() {
   try {
     const response = await axios.post(
@@ -32,6 +51,7 @@ async function handleDownloadButton() {
   }
 }
 
+/*          App 실행             */
 async function handleRunButton() {
   try {
     const response = await axios.post(`${backendUrl}/api/open`, {
@@ -43,6 +63,7 @@ async function handleRunButton() {
   }
 }
 
+/*        AppList 컴포넌트        */
 export default function AppList() {
   return (
     <>
@@ -60,56 +81,21 @@ export default function AppList() {
               />
             </ListItemIcon>
             <ListItemText
+              className={styles.list_content}
               primary={<strong>{app.name}</strong>}
               secondary={app.description}
             />
-            <Button
-              style={{ color: 'black' }}
-              endIcon={<GetAppIcon />}
-              className={styles.app_list_button}
-              onClick={handleDownloadButton}>
-              Get
-            </Button>
-            <Button
-              style={{ color: 'black' }}
-              endIcon={<DownloadDoneIcon />}
-              className={styles.app_list_button}
-              onClick={handleRunButton}>
+            <AppListButton onClick={handleDownloadButton}>
+              Get <GetAppIcon />
+            </AppListButton>
+
+            <AppListButton onClick={handleRunButton}>
               Run
-            </Button>
+              <DownloadDoneIcon />
+            </AppListButton>
           </ListItem>
         ))}
       </List>
     </>
   );
-}
-
-{
-  /* <div className={styles.AppList}>
-        <h2>Pionoid App List</h2>
-        <ul>
-          {AppData.map((app) => (
-            <>
-              <li key={app.id}>
-                <img
-                  className={styles.icon_image}
-                  src={`/src/assets/icons/${app.id}.jpg`}
-                  alt="app_icon"
-                />
-                <div className={styles.app_list_content}>
-                  <strong>{app.name}</strong>
-                  <p>{app.description}</p>
-                </div>
-                <div className={styles.app_list_button}>
-                  <Button
-                    style={{ color: 'black' }}
-                    endIcon={<GetAppIcon />}>
-                    Get
-                  </Button>
-                </div>
-              </li>
-            </>
-          ))}
-        </ul>
-      </div> */
 }

@@ -4,23 +4,42 @@ import FactoryRoundedIcon from '@mui/icons-material/FactoryRounded';
 import MovieCreationIcon from '@mui/icons-material/MovieCreation';
 import Stack from '@mui/material/Stack';
 
-export default function IconLabelButtons() {
+export default function Category() {
   return (
     <Stack direction="row" spacing={2}>
       <Button
-        style={{ borderRadius: '15px' }}
+        style={{
+          padding: '10px',
+          marginRight: '15px',
+          border: 'none',
+          borderRadius: '15px',
+          color: 'white',
+        }}
         variant="contained"
         startIcon={<FastfoodRoundedIcon />}>
         Food / Beverage
       </Button>
       <Button
-        style={{ borderRadius: '15px' }}
-        variant="outlined"
+        style={{
+          padding: '10px',
+          marginRight: '15px',
+          border: 'none',
+          borderRadius: '15px',
+          color: 'black',
+          backgroundColor: 'rgb(227, 231, 235)',
+        }}
         startIcon={<FactoryRoundedIcon />}>
         Industrial
       </Button>
       <Button
-        style={{ borderRadius: '15px' }}
+        style={{
+          padding: '10px',
+          marginRight: '15px',
+          border: 'none',
+          borderRadius: '15px',
+          color: 'black',
+          backgroundColor: 'rgb(227, 231, 235)',
+        }}
         variant="outlined"
         startIcon={<MovieCreationIcon />}>
         Entertainment
@@ -28,21 +47,3 @@ export default function IconLabelButtons() {
     </Stack>
   );
 }
-// export default function Category() {
-//   return (
-//     <div className={styles.container}>
-//       <ul className={styles.category_list}>
-//         {CategoryData.map((data) => (
-//           <li key={data.id}>
-//             <img
-//               className={styles.category_icon}
-//               src={`/src/assets/icons/${data.icon_name}.png`}
-//               alt=""
-//             />
-//             {data.name}
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }

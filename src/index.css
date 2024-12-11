@@ -14,8 +14,8 @@
 
 html,
 body {
-  margin: 0px;
-  padding: 0px 10px;
+  margin: 0;
+  padding: 0;
   width: 100%;
   background-color: rgb(246, 246, 246);
   display: flex;
@@ -24,7 +24,7 @@ body {
 #root {
   max-width: 1400px;
   margin: 0 auto;
-  min-height: 100vh;
+  padding: 0px 10px;
   height: 100%;
 }
 

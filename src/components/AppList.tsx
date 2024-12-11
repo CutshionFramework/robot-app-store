@@ -1,15 +1,33 @@
+import { styled } from 'styled-components';
 import { useEffect, useState } from 'react';
 import styles from './AppList.module.css';
 import axios from 'axios';
 import {
-  Button,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Typography,
 } from '@mui/material';
-import GetAppRounded from '@mui/icons-material/GetAppRounded';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import GetAppIcon from '@mui/icons-material/GetAppRounded';
+import AppListSkeleton from './skeleton/app-list-skeleton';
+
+/*     Button styled 컴포넌트     */
+const AppListButton = styled.button`
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  background-color: #131313;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0f0f0faf;
+  }
+`;
 
 // App 데이터 타입 정의
 interface App {
@@ -67,7 +85,11 @@ export default function AppList() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <AppListSkeleton count={4} />
+      </div>
+    );
   }
 
   if (error) {
@@ -75,40 +97,42 @@ export default function AppList() {
   }
 
   return (
-    <List>
-      {appData.map((app) => (
-        <ListItem
-          className={styles.list_item}
-          key={app.id}
-          alignItems="flex-start"
-        >
-          <ListItemIcon>
-            <img
-              className={styles.icon_image}
-              src={`/src/assets/icons/${app.id}.jpg`}
-              alt="app_icon"
-            />
-          </ListItemIcon>
-          <ListItemText
-            primary={<strong>{app.name}</strong>}
-            secondary={app.description}
-          />
-          <Button
-            style={{ color: 'black' }}
-            endIcon={
-              app.app_state === 'Get' ? (
-                <GetAppRounded />
-              ) : (
-                <PlayCircleOutlineIcon />
-              )
-            }
-            className={styles.app_list_button}
-            onClick={() => handleButtonClick(app.app_state)}
+    <>
+      <Typography
+        variant="h4"
+        style={{ fontWeight: 'bold', marginLeft: '15px' }}
+      >
+        App List
+      </Typography>
+      <List>
+        {appData.map((app) => (
+          <ListItem
+            className={styles.list_item}
+            key={app.id}
+            alignItems="flex-start"
           >
-            {app.app_state}
-          </Button>
-        </ListItem>
-      ))}
-    </List>
+            <ListItemIcon>
+              <img
+                className={styles.icon_image}
+                src={`/src/assets/icons/${app.id}.jpg`}
+                alt="app_icon"
+              />
+            </ListItemIcon>
+            <ListItemText
+              style={{ marginRight: '10px' }}
+              primary={<strong>{app.name}</strong>}
+              secondary={app.description}
+            />
+            <AppListButton
+              className={styles.app_list_button}
+              onClick={() => handleButtonClick(app.app_state)}
+            >
+              {app.app_state}
+              <GetAppIcon style={{ marginLeft: '10px' }} />
+            </AppListButton>
+          </ListItem>
+        ))}
+      </List>
+    </>
   );
 }

@@ -1,14 +1,25 @@
-.top_section {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
 section {
   margin-bottom: 30px;
 }
 
+.top_section {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.app_section {
+  display: flex;
+  justify-content: center;
+}
+
 .app_list_section {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.footer_section {
   display: flex;
   margin-top: 40px;
 }

@@ -42,3 +42,8 @@
   line-height: 2;
   font-size: 12px;
 }
+
+.app_list_button div {
+  margin-left: 10px;
+  margin-top: 4px;
+}

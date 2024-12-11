@@ -9,23 +9,30 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
-import GetAppIcon from '@mui/icons-material/GetAppRounded';
+import GetAppRounded from '@mui/icons-material/GetAppRounded';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import AppListSkeleton from './skeleton/app-list-skeleton';
 
 /*     Button styled 컴포넌트     */
 const AppListButton = styled.button`
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-right: 10px;
-  background-color: #131313;
+  background-color: rgb(52 52 52 / 90%);
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
+  margin-top: 20px;
+  font-size: 17px;
+  width: 95px;
+  height: 50px;
+
   cursor: pointer;
 
   &:hover {
-    background-color: #0f0f0faf;
+    background-color: rgb(12 12 12 / 90%);
   }
 `;
 
@@ -127,8 +134,14 @@ export default function AppList() {
               className={styles.app_list_button}
               onClick={() => handleButtonClick(app.app_state)}
             >
-              {app.app_state}
-              <GetAppIcon style={{ marginLeft: '10px' }} />
+              <p>{app.app_state}</p>
+              <div>
+                {app.app_state === 'Get' ? (
+                  <GetAppRounded />
+                ) : (
+                  <PlayCircleOutlineIcon />
+                )}
+              </div>
             </AppListButton>
           </ListItem>
         ))}
